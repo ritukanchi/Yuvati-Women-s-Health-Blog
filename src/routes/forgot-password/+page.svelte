@@ -1,58 +1,48 @@
 <script>
     import Hamburg from "../hamburg.svelte";
     import { auth } from '../../firebase.js';
-    import { createUserWithEmailAndPassword } from 'firebase/auth';
+    import { sendPasswordResetEmail } from 'firebase/auth';
     import { goto } from '$app/navigation';
 
     let email = "";
-    let password = "";
-
+    let message = "";
 
     const handleSubmit = async () => {
         try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user; 
-      console.log('User signed up:', user);
-      goto('/'); 
-    } catch (error) {
-      const errorCode = error.code; 
-      const errorMessage = error.message; 
-      console.error('Error signing up:', errorCode, errorMessage);
-      error = errorMessage; 
-    }
-  };
+            await sendPasswordResetEmail(auth, email);
+            message = "Password reset link sent! Please check your email.";
+        } catch (error) {
+            console.error("Error sending reset email:", error);
+            message = "Failed to send reset email. Please try again.";
+        }
+    };
 </script>
 
 <div class="container">
-    <h1 class="heading">Sign Up</h1>
+    <h1 class="heading">Forgot Password</h1>
     <form class="login-form" on:submit|preventDefault={handleSubmit}>
         <div class="input-group">
             <input 
                 type="email" 
                 bind:value={email} 
-                placeholder="Email"  
+                placeholder="Email" 
                 class="form-input"
+                required
             />
-        </div>
-        
-        <div class="input-group">
-            <input 
-                type="password" 
-                bind:value={password} 
-                placeholder="Password"
-                class="form-input"
-            />
-            <a href="/forgot-password" class="forgot-link">Forgot Password?</a>
         </div>
 
         <button type="submit" class="login-button">
-            Sign Up
+            Send Reset Link
         </button>
     </form>
 
+    {#if message}
+        <p class="message">{message}</p>
+    {/if}
+
     <p class="signup-text">
-        Already have an account? 
-        <a href="/signin" class="signup-link">Log in now!</a>
+        Don't have an account? 
+        <a href="/signup" class="signup-link">Sign up now!</a>
     </p>
 </div>
 
@@ -130,6 +120,13 @@
 
     .login-button:hover {
         background-color: #357abd;
+    }
+
+    .message {
+        color: green;
+        font-size: 1rem;
+        text-align: center;
+        margin-top: 1rem;
     }
 
     .signup-text {
