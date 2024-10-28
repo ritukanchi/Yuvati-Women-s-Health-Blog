@@ -1,0 +1,127 @@
+<script>
+    export let link = "";
+    export let text = "";
+</script>
+
+<div class="header-container">
+    <a href={link} class="header-link">{text}</a>
+    {#if text === "Health Condition"}
+        <div class="select" data-default="Select Condition">
+            <div class="selected" data-default="Health Condition">
+                {text}
+                <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M7 10l5 5 5-5H7z" />
+                </svg>
+            </div>
+            <div class="options">
+                <div class="option">
+                    <input type="radio" id="pcod" name="health-option" />
+                    <label for="pcod" data-txt="PCOD">PCOD</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="diabetes" name="health-option" />
+                    <label for="diabetes" data-txt="Diabetes">Diabetes</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="endometriosis" name="health-option" />
+                    <label for="endometriosis" data-txt="Endometriosis">Endometriosis</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="pmdd" name="health-option" />
+                    <label for="pmdd" data-txt="PMDD">PMDD</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="mental-health" name="health-option" />
+                    <label for="mental-health" data-txt="Mental Health">Mental Health</label>
+                </div>
+            </div>
+        </div>
+    {/if}
+</div>
+
+<style>
+    :root {
+        --linecolor: pink;
+        --linewidth: 5px;
+        --txtblack: black;
+        --navbtn: transparent;
+    }
+
+    .header-container {
+        display: inline-block; 
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px;
+        gap: 90px; 
+    }
+
+    .header-link {
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0);
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        text-decoration: none;
+        color: var(--txtblack);
+        margin: 0 10px;
+        transition: 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    }
+
+    /* Dropdown styles */
+    .select {
+        width: fit-content;
+        cursor: pointer;
+        position: relative;
+        color: rgb(0, 0, 0);
+    }
+
+    .selected {
+        background-color: #2a2f3b;
+        padding: 5px;
+        border-radius: 5px;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+    }
+
+    .arrow {
+        width: 25px;
+        transform: rotate(-90deg);
+        transition: 300ms;
+    }
+
+    .options {
+        display: none;
+        flex-direction: column;
+        background-color: #2a2f3b;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .select:hover .options {
+        display: flex;
+    }
+
+    .select:hover .arrow {
+        transform: rotate(0deg);
+    }
+
+    .option {
+        padding: 5px;
+        color: white;
+        background-color: #2a2f3b;
+        width: 150px;
+        font-size: 15px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .option:hover {
+        background-color: #323741;
+    }
+</style>

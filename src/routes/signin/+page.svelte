@@ -1,5 +1,4 @@
 <script>
-    import Hamburg from "../hamburg.svelte";
     import { auth } from '../../firebase.js';
     import { signInWithEmailAndPassword } from 'firebase/auth';
     import { goto } from '$app/navigation';
@@ -28,6 +27,10 @@
     };
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aladin&family=Mountains+of+Christmas:wght@400;700&display=swap" rel="stylesheet">
+
 <div class="container">
     <h1 class="heading">Sign In</h1>
     <form class="login-form" on:submit|preventDefault={handleSubmit}>
@@ -54,11 +57,12 @@
             Sign In
         </button>
     </form>
-
-    <p class="signup-text">
-        Don't have an account? 
-        <a href="/signup" class="signup-link">Sign up now!</a>
-    </p>
+    <div class="signup">
+        <p class="signup-text">
+            Don't have an account? 
+            <a href="/signup" class="signup-link">Sign up now!</a>
+        </p>
+    </div>
 </div>
 
 <style>
@@ -119,7 +123,12 @@
         text-align: right;
         margin-top: 0.25rem;
     }
-
+    .signup {
+        font-family: "Mountains of Christmas", serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: large;
+    }
     .login-button {
         background-color: #4a90e2;
         color: white;
@@ -141,6 +150,7 @@
         margin-top: 1.5rem;
         color: #333;
         font-size: 0.9rem;
+        font-size: large;
     }
 
     .signup-link {
