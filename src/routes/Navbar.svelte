@@ -1,134 +1,116 @@
 <script>
     import NavLink from "./NavLink.svelte";
-    import Hamburg from "./hamburg.svelte";
-    let isMenuOpen = false;
-
-    const toggleMenu = () => {
-        isMenuOpen = !isMenuOpen;
-    };
-</script>
-
-<div class="nav-container">
+    </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aladin&family=Mountains+of+Christmas:wght@400;700&family=Paprika&display=swap" rel="stylesheet">
+<div class="wave-container">
+    <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,64
+                C288,64 288,0 576,0
+                C864,0 864,64 1152,64
+                C1440,64 1440,0 1440,0
+                L1440,120
+                L0,120
+                Z"
+            fill="#FFB6B6">
+        </path>
+    </svg>
+</div>
     <nav class="navbar">
-        <button 
-            class="hamburger" 
-            on:click={toggleMenu}
-            aria-label="Toggle navigation menu"
-            aria-expanded={isMenuOpen}
-        >
-            <span class:open={isMenuOpen}></span>
-            <span class:open={isMenuOpen}></span>
-            <span class:open={isMenuOpen}></span>
-        </button>
-        
-        <div class="nav-links" class:menu-open={isMenuOpen}>
-            <NavLink link="/" text="Yuvati" />
-            <NavLink link="/Health" text="Health Condition" />
-            <NavLink link="/Discover" text="Discover" />
-            <NavLink link="/Updates" text="Updates" />
-            <NavLink link="/signin" text="Sign in" />
-            <NavLink link="/connect" text="Connect" />
+        <div class="nav-links">
+            <div class="girl1">
+                <img src="girl1.png" alt="Girl icon" width="40" height="40">
+            </div>
+            <div class="main-title">
+                <NavLink link="/" text="Yuvati" />
+            </div>            
+            <NavLink link="/Health"/>
+            <NavLink link="/Discover"/>
+            <div class="otherlinks">
+                <NavLink link="/Updates" text="Updates" />
+                <NavLink link="/signin" text="Sign in" />
+                <NavLink link="/connect" text="Connect" />
+            </div>
         </div>
     </nav>
-    <div class="curve"></div>
-</div>
+
+
 
 <style>
-   .nav-container {
-        background-color: #FFB6B6; 
-        position: relative;
+    .nav-container {
+        background-color: #FFB6B6;
+        position:top;
         width: 100%;
-        padding-bottom: 50px; 
     }
 
-    .curve {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 90px;
-        background-color: #FFB6B6; 
-        clip-path: path(
-            "M 0 100 Q 15 60, 25 80
-            T 35 100
-            Q 50 50, 75 90
-            T 100 75 V 100 H 0 Z"
-        );
-    }
+    .wave-container {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: translateY(1px); /* Adjust as needed */
+}
+
+.wave {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 120px;
+    transform: scaleY(-1); /* Inverts the wave */
+    bottom: 0; /* Ensure it aligns correctly */
+}
+
+
     .navbar {
-        display: flex;
-        align-items: center;
-        padding: 1rem;
-        position: relative;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .hamburger {
-        display: left; 
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        width: 30px;
-        height: 24px;
-        flex-direction: column;
+        display: inline-flex;
         justify-content: space-between;
-        z-index: 20;
+        align-items: center;
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
+        z-index: 1;
+        font-size: larger;
     }
 
-    .hamburger span {
-        display: block;
-        width: 100%;
-        height: 3px;
-        background-color: #000;
-        border-radius: 3px;
-        transition: all 0.3s ease-in-out;
+    .main-title {
+        padding-top: 26px;
+        font-family: "Paprika", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        font-weight: bolder;
+        font-size: larger;
     }
-
-    .hamburger span.open:nth-child(1) {
-        transform: translateY(10px) rotate(35deg);
-    }
-
-    .hamburger span.open:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger span.open:nth-child(3) {
-        transform: translateY(-10px) rotate(-45deg);
+    .otherlinks{
+        padding-top: 26px;
+        display: flex; 
+        justify-content: space-around;
+        gap: 4rem; 
     }
 
     .nav-links {
         display: flex;
-        gap: 1.5rem;
         align-items: center;
-        width: 100%;
-        justify-content: flex-end;
+        justify-content: flex-start;
+        font-size: larger;
+        width: fit-content;
+        gap: 4rem;
+        white-space: nowrap;
     }
 
-    /* Mobile styles */
-    @media (max-width: 768px) {
-        .hamburger {
-            display: flex; 
-        }
+    .girl1 {
+        display: flex;
+        align-items: center;
+        width: 120px;  /* Set fixed width */
+        height: 60px; /* Set fixed height */
+        margin-right: 0.6rem; /* Add some space between image and text */
+    }
 
-        .nav-links {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #FFB6B6;
-            flex-direction: column;
-            align-items: center;
-            padding: 4rem 2rem;
-            transform: translateX(-100%);
-            transition: transform 0.3s ease-in-out;
-            z-index: 10;
-        }
-
-        .nav-links.menu-open {
-            transform: translateX(0);
-        }
+    .girl1 img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* This will maintain aspect ratio */
     }
 </style>

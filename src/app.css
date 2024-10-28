@@ -4,4 +4,11 @@ html, body {
     margin: 0; /* Optional: removes default margin */
     padding: 0;
     min-height: 100vh; /* Ensures color covers full height */
+};
+
+@font-face {
+    font-family: 'Tan Meringue';
+    src: url('../static/TAN MERINGUE.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }

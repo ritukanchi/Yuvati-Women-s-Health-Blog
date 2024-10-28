@@ -1,5 +1,4 @@
 <script>
-    import Hamburg from "../hamburg.svelte";
     import { auth } from '../../firebase.js';
     import { createUserWithEmailAndPassword } from 'firebase/auth';
     import { goto } from '$app/navigation';
