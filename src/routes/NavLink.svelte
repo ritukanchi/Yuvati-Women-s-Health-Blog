@@ -19,28 +19,28 @@
                 </svg>
             </div>
             <div class="options">
-                <a href="/health/pcod" class="option">
+                <a href="/Health/pcod" class="option">
                     <div class="option-content">PCOD</div>
                 </a>
-                <a href="/health/diabetes" class="option">
+                <a href="/Health/diabetes" class="option">
                     <div class="option-content">Diabetes</div>
                 </a>
-                <a href="/health/endometriosis" class="option">
+                <a href="/Health/endometriosis" class="option">
                     <div class="option-content">Endometriosis</div>
                 </a>
-                <a href="/health/pmdd" class="option">
+                <a href="/Health/pmdd" class="option">
                     <div class="option-content">PMDD</div>
                 </a>
-                <a href="/health/mental-health" class="option">
+                <a href="/Health/mental-health" class="option">
                     <div class="option-content">Mental Health</div>
                 </a>
             </div>
         </div>
     {/if}
-    {#if link === "/Discover"}
+    {#if link === "/Updates"}
     <div class="select" data-default="Select Condition">
-        <div class="selected" data-default="Discover">
-            Discover
+        <div class="selected" data-default="Updates">
+            Updates
             <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M7 10l5 5 5-5H7z" />
             </svg>
@@ -54,12 +54,6 @@
             </a>
             <a href="/Discover/workshop" class="option">
                 <div class="option-content">Workshop</div>
-            </a>
-            <a href="/health/pmdd" class="option">
-                <div class="option-content">PMDD</div>
-            </a>
-            <a href="/health/mental-health" class="option">
-                <div class="option-content">Mental Health</div>
             </a>
         </div>
     </div>

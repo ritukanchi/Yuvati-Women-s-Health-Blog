@@ -1,60 +1,88 @@
 <script>
-    export let link = "";
-    export let text = "";
-</script>
-
-<div class="header-container">
-    <a href={link} class="header-link">{text}</a>
+    import NavLink from "./NavLink.svelte";
+    </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aladin&family=Mountains+of+Christmas:wght@400;700&family=Paprika&display=swap" rel="stylesheet">
+<div class="header">
+    <img src="headergirl.png" alt="head"/>
 </div>
+    <nav class="navbar">
+        <div class="nav-links">
+            <div class="girl1">
+                <img src="girl1.png" alt="Girl icon" width="40" height="40">
+            </div>
+            <div class="main-title">
+                <NavLink link="/" text="Yuvati" />
+            </div>            
+            <NavLink link="/Health"/>
+            <NavLink link="/Discover"/>
+            <div class="otherlinks">
+                <NavLink link="/Updates" text="Updates" />
+                <NavLink link="/signin" text="Sign in" />
+                <NavLink link="/connect" text="Connect" />
+            </div>
+        </div>
+    </nav>
+
 
 
 <style>
-    :root {
-        --linecolor: pink;
-        --linewidth: 5px;
-        --txtblack: black;
-        --navbtn: transparent;
+    .nav-container {
+        background-color: #FFB6B6;
+        position:top;
+        width: 100%;
     }
-
-    .header-container {
-        display: inline-block; 
-        justify-content:space-around;
-        align-items:center;
-        padding: 10px;
-        gap: 90px; 
+    .header{
+        
     }
-
-    .header-link {
-        padding: 10px;
-        background-color: rgba(0, 0, 0, 0);
-        display: inline-block;
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         position: relative;
-        z-index: 1;
-        text-decoration: none;
-        color: var(--txtblack);
-        margin: 0 10px;
-        transition: 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-        transition-delay: 0s !important;
+        max-width: 1000px;
+        margin: 0 auto;
+        z-index: 2;
+        font-size: larger;
     }
 
-    .header-link::before {
-        position: absolute;
-        content: "";
+    .main-title {
+        padding-top: 26px;
+        font-family: "Paprika", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        font-weight: bolder;
+        font-size: larger;
+    }
+    .otherlinks{
+        padding-top: 26px;
+        display: flex; 
+        justify-content: space-around;
+        gap: 4rem; 
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: larger;
+        width: fit-content;
+        gap: 4rem;
+        white-space: nowrap;
+    }
+
+    .girl1 {
+        display: flex;
+        align-items: center;
+        width: 120px;  /* Set fixed width */
+        height: 60px; /* Set fixed height */
+        margin-right: 0.6rem; /* Add some space between image and text */
+    }
+
+    .girl1 img {
         width: 100%;
         height: 100%;
-        box-shadow: 0px 0px 0px 0px var(--linecolor);
-        background: var(--navbtn);
-        z-index: -1;
-        transition: 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-    }
-
-    .header-link:hover::before {
-        width: 100%;
-        left: unset;
-        right: 0;
-    }
-
-    .header-link:hover {
-        box-shadow: 0px var(--linewidth) 0px 0px var(--linecolor);
+        object-fit: contain; /* This will maintain aspect ratio */
     }
 </style>

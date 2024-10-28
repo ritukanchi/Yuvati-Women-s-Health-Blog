@@ -1,116 +1,87 @@
 <script>
     import NavLink from "./NavLink.svelte";
-    </script>
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Aladin&family=Mountains+of+Christmas:wght@400;700&family=Paprika&display=swap" rel="stylesheet">
-<div class="wave-container">
-    <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <path d="M0,64
-                C288,64 288,0 576,0
-                C864,0 864,64 1152,64
-                C1440,64 1440,0 1440,0
-                L1440,120
-                L0,120
-                Z"
-            fill="#FFB6B6">
-        </path>
-    </svg>
-</div>
+
+<div class="header">
+    <img src="headergirl.png" alt="head" class="headgirl"/>
     <nav class="navbar">
         <div class="nav-links">
-            <div class="girl1">
-                <img src="girl1.png" alt="Girl icon" width="40" height="40">
-            </div>
             <div class="main-title">
                 <NavLink link="/" text="Yuvati" />
             </div>            
             <NavLink link="/Health"/>
-            <NavLink link="/Discover"/>
+            <NavLink link="/Updates"/>
             <div class="otherlinks">
-                <NavLink link="/Updates" text="Updates" />
+                <NavLink link="/Discover" text="Discover" />
                 <NavLink link="/signin" text="Sign in" />
                 <NavLink link="/connect" text="Connect" />
             </div>
         </div>
     </nav>
-
-
+</div>
 
 <style>
-    .nav-container {
-        background-color: #FFB6B6;
-        position:top;
+    .header {
+        position: relative; /* Set relative to contain absolutely positioned navbar */
         width: 100%;
+        height: 200px; /* Adjust height as needed */
     }
 
-    .wave-container {
-    position: relative;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: translateY(1px); /* Adjust as needed */
-}
-
-.wave {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 120px;
-    transform: scaleY(-1); /* Inverts the wave */
-    bottom: 0; /* Ensure it aligns correctly */
-}
-
+    .headgirl {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Adjusts the image to cover the container */
+    }
 
     .navbar {
-        display: inline-flex;
+        position: absolute; /* Positions navbar on top of header */
+        top: 20px; /* Adjust spacing from the top */
+        left: 0;
+        right: 0;
+        display: flex;
         justify-content: space-between;
         align-items: center;
-        position: relative;
-        max-width: 1000px;
+        max-width: 1200px; /* Center content within navbar */
         margin: 0 auto;
         z-index: 1;
         font-size: larger;
+        padding: 10px 20px; /* Add some padding for better spacing */
+        border-radius: 8px; /* Optional: rounded corners */
     }
 
     .main-title {
-        padding-top: 26px;
+        padding-top: 25px;
         font-family: "Paprika", system-ui;
         font-weight: 400;
-        font-style: normal;
-        font-weight: bolder;
         font-size: larger;
     }
-    .otherlinks{
+
+    .otherlinks {
         padding-top: 26px;
         display: flex; 
         justify-content: space-around;
-        gap: 4rem; 
+        gap: 2rem; 
     }
 
     .nav-links {
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        font-size: larger;
-        width: fit-content;
-        gap: 4rem;
+        gap: 2rem;
         white-space: nowrap;
     }
 
     .girl1 {
         display: flex;
         align-items: center;
-        width: 120px;  /* Set fixed width */
-        height: 60px; /* Set fixed height */
-        margin-right: 0.6rem; /* Add some space between image and text */
     }
 
     .girl1 img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain; /* This will maintain aspect ratio */
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
     }
 </style>

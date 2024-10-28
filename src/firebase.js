@@ -2,7 +2,6 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getAuth } from "firebase/auth";
 
-// Your web app's Firebase configuration
 const firebaseConfig = {  
 	apiKey: "AIzaSyBXQjXR0vCDVs_vsBii9WHf7Da-UeBMsXo",  
 	authDomain: "yuvati-ca4b0.firebaseapp.com",  
@@ -13,10 +12,9 @@ const firebaseConfig = { 
 	measurementId: "G-THT3K1CHEL"   
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
-// Initialize Firebase Authentication
+//Firebase Authentication
 const auth = getAuth(app);
 
 export { auth };
