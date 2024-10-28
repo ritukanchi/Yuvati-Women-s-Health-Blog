@@ -41,6 +41,9 @@
 
     onMount(fetchDiseaseArticle);
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aladin&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mountains+of+Christmas:wght@400;700&family=Paprika&display=swap" rel="stylesheet">
 
 {#if loading}
     <div class="loading">
@@ -68,12 +71,21 @@
 
 <style>
     .article-container{
-        display: flex;
-        
+        display: inline-block;
+        justify-content: left;
+        align-items: center;
+        padding: 90px;  
+        font-family: "Inter", sans-serif;
+
     }
+
     .no-content {
         text-align: center;
         padding: 3rem;
         color: #666;
+    }
+    .article-contet{
+        text-align: center;
+        font-size:90px;
     }
 </style>
