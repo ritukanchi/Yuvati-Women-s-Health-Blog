@@ -1,4 +1,2 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 946751ab9b868c3a7a3061f5f2af3e1a44e82fd9
+## Women's Health Blog - Yuvati 
+- Built with Sveltekit, firebase for authentication and database 

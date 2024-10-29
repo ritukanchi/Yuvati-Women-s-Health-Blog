@@ -16,7 +16,7 @@ def search_documents(search_value):
         docs = collection.get()
         for doc in docs:
             # Check if the search value matches the document ID
-            if search_value == doc.id:
+            if search_value == do   c.id:
                 found_docs = True
                 print(f"Found Document by ID in Collection: {collection.id}, Document ID: {doc.id} => Data: {doc.to_dict()}")
     
