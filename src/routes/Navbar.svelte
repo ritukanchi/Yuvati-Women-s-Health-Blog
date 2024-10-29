@@ -1,5 +1,7 @@
 <script>
     import NavLink from "./NavLink.svelte";
+    import NavbarButton from "./SlideLink.svelte";
+    import SlideButton from "./SlideButton.svelte";
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

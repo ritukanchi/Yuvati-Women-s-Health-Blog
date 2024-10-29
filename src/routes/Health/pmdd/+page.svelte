@@ -10,7 +10,7 @@
     async function fetchDiseaseArticle() {
         try {
             loading = true;
-            const articleRef = doc(db, "disease", "PCOD");  // Accessing the "PCOD" document within "disease" collection
+            const articleRef = doc(db, "disease", "pmdd");  // Accessing the "pmdd" document within "disease" collection
             console.log('Fetching document:', articleRef.path);
 
             const articleSnap = await getDoc(articleRef);
@@ -19,14 +19,14 @@
                 const data = articleSnap.data();
                 console.log('Document data:', data);
 
-                if (data?.PCOD) {  // Accessing the "PCOD" field in the document
+                if (data?.pmdd) {  // Accessing the "pmdd" field in the document
                     article = {
                         id: articleSnap.id,
-                        title: "PCOD",
-                        content: data.PCOD,  // Assigning the content from the PCOD field
+                        title: "PMDD",
+                        content: data.pmdd,  // Assigning the content from the pmdd field
                     };
                 } else {
-                    throw new Error("PCOD field not found in the document");
+                    throw new Error("PMDD field not found in the document");
                 }
             } else {
                 throw new Error("Document not found");
